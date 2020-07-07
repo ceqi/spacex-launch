@@ -41,8 +41,8 @@ const Launch: React.FC<LaunchProps> = ({ launchId }) => {
     LaunchDetailsTypes.LaunchDetailsVariables>(GET_LAUNCH_DETAILS, { variables: { launchId } });
 
   if (loading) return <Loading />;
-  if(error) return <p>ERROR: {error.message}</p>
-  if(!data) return <p> Not Found</p>
+  if (error) return <p>ERROR: {error.message}</p>
+  if (!data) return <p> Not Found</p>
 
   return <div />;
 }
