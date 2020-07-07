@@ -63,6 +63,7 @@ const Launches: React.FC<LaunchesProps> = () => {
 
                 updateQuery: (prev, { fetchMoreResult, ...rest }) => {
                   if (!fetchMoreResult) return prev;
+                  
                   return {
                     ...fetchMoreResult,
                     launches: {
