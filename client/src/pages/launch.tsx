@@ -44,7 +44,13 @@ const Launch: React.FC<LaunchProps> = ({ launchId }) => {
   if (error) return <p>ERROR: {error.message}</p>
   if (!data) return <p> Not Found</p>
 
-  return <div />;
+  return <Fragment>
+    <Header image={data.launch && data.launch.mission && data.launch.mission.missionPatch}>
+      {data && data.launch && data.launch.mission && data.launch.mission.name}
+    </Header>
+    <LaunchDetail {...data.launch} />
+    <ActionButton {...data.launch} />
+  </Fragment>
 }
 
 
