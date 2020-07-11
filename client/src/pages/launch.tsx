@@ -7,25 +7,20 @@ import { Loading, Header, LaunchDetail } from '../components';
 import { ActionButton } from '../containers';
 import { RouteComponentProps } from '@reach/router';
 import * as LaunchDetailsTypes from './__generated__/LaunchDetails';
+import { LAUNCH_TILE_DATA } from './launches';
 
 export const GET_LAUNCH_DETAILS = gql`
   query LaunchDetails($launchId: ID!) {
-    id
-    site
-    isBooked
-    rocket {
-      id
-      name
-      type
-    }
-    mission {
-      name
-      missionPatch
+    launch(id: $launchId) {
+      site
+      rocket {
+        type
+      }
+      ...LaunchTile
     }
   }
+  ${LAUNCH_TILE_DATA}
 `
-
-
 
 interface LaunchProps extends RouteComponentProps {
   launchId?: any;
